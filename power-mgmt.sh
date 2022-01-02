@@ -35,19 +35,20 @@ confirmForcedShutdow()
    echo "The system is shutting down forcefully NOW"
 }
 
-# Print helpFunction in case parameters are empty
-if [ -z "$parameterA" ] || [ -z "$parameterB" ] || [ -z "$parameterC" ]
-then
-   #echo "Some or all of the required parameters are empty";
-   #helpFunction
-fi
-
 case $1 in
-   
+	"--action")
+		firstParmIsAction=true
+		actionCalled=true
+	;;
+	"*")
+		echo "A required parameter was missing."
+   		echo "Please see the -h command."
+   		exit 1
+   	;;
 
 
 
-if [ $1 == "" ]
+if [ actionCalled == true ]
 then
    echo "A required parameter was missing."
    echo "Please see the -h command."
