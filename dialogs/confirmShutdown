@@ -1,0 +1,2 @@
+--keep-window --begin 2 1 --backtitle power-mgmt --title "Confirm System Shutdown" --default-button no --yesno "This will power off the system. Any unsaved changes will be lost. Are you sure you want to commit to this?" 0 0  \
+--and-widget --sleep 3 --begin 10 1 --backtitle power-mgmt --infobox "Shutting down now..." 0 0
