@@ -19,7 +19,7 @@ helpFunction()
 {
 	figlet power-mgmt -l -f slant
 	echo ""
-	echo "Usage: power-mgmt --action [PERFORMABLE ACTION] [--force level] -c parameterC"
+	echo "Usage: power-mgmt --action [PERFORMABLE ACTION] [--force level]"
 	echo -e "\t--action - Describes what action to perform."
 	echo -e "\t--force [level] - Force the action to happen using the specified severity level."
     #echo -e "\t-c Description of what is parameterC"
@@ -39,17 +39,22 @@ helpFunction()
     echo "Please note that most commands require power-mgmt to be run as root for it to function properly."
 	exit 1 # Exit script after printing help
 }
-confirmShutdown()
+shutdown()
 {
-   #
+   dialog --file "dialogs/confirmShutdown"
    
 
    echo "The system is shutting down NOW"
 }
 
-confirmForcedShutdow()
+forceShutdown()
 {
-   echo "The system is shutting down forcefully NOW"
+	dialog --file "dialogs/notRoot"
+    echo "The system is shutting down forcefully NOW"
+}
+notRoot()
+{
+	dialog --file "dialogs/notRoot"
 }
 
 case $1 in
@@ -67,6 +72,20 @@ case $1 in
 		echo "A unexpected option was passed into power-mgmt."
 		echo "Please check your command and try again."
 		exit 2
+	;;	
+esac
+case $2 in
+	"s") shutdown;;
+	"shutdown") shutdown;;
+	"p") forceShutdown;;
+	"poweroff") forceShutdown;;
+	"halt") shutdown;;
+   	"-h") helpFunction;;
+	"--help") helpFunction;;
+   	*)
+		echo "A required parameter was missing."
+   		echo "Please see the -h command."
+   		exit 3
 	;;	
 esac
 if [ $? != "0" ]; then
