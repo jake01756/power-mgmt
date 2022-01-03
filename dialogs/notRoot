@@ -1,1 +1,1 @@
---begin 2 1 --backtitle power-mgmt --title "Error" --msgbox "power-mgmt must be run as root." 5 35
+--begin 2 1 --erase-on-exit --backtitle power-mgmt --title "Error" --msgbox "power-mgmt must be run as root." 5 35

@@ -1,0 +1,1 @@
+--begin 2 1 --erase-on-exit --backtitle power-mgmt --title "Error" --msgbox "power-mgmt must be run as root. \n\nAdditionally, an erorr occured while obtaining authorization. " 8 35
