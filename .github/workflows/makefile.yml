@@ -18,10 +18,7 @@ jobs:
       run: sudo apt install shc dialog
       
     - name: Build
-      run: make power-mgmt
+      run: make
       
     - name: Build debug
       run: make debug
-      
-    - name: Run distcheck
-      run: make distcheck
