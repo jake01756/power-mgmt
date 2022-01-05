@@ -26,6 +26,7 @@ jobs:
          name: power-mgmt
          path: build/power-mgmt
          if-no-files-found: warn
+         retention-days: 90
   
     - name: Build debug
       run: make debug
@@ -36,3 +37,4 @@ jobs:
          name: power-mgmt-debug
          path: build/power-mgmt-debug
          if-no-files-found: warn
+         retention-days: 60
