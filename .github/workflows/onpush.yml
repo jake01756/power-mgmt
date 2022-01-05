@@ -44,6 +44,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
         # Generate Debian control File
       - name: Generate Debian control File
         uses: Nightwind-Developments/debian-control-file-builder@latest
