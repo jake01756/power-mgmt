@@ -19,6 +19,18 @@ jobs:
       
     - name: Build
       run: make
-      
+    
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+         name: build/power-mgmt
+         if-no-files-found: warn
+  
     - name: Build debug
       run: make debug
+      
+    - name: Upload debug artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+         name: build/power-mgmt-debug
+         if-no-files-found: warn
