@@ -101,18 +101,19 @@ jobs:
           #package_version: '0.0.1'
           #package_arch: 'all'
 
-      - name: Upload Generated Package File
-        uses: actions/upload-artifact@v2
-        with:
-          name: generated-hello-world-package
-          path: "${{ steps.container.outputs.generated_package_path }}"
-          if-no-files-found: error
+      #- name: Upload Generated Package File
+        #uses: actions/upload-artifact@v2
+        #with:
+          #name: generated-hello-world-package
+          #path: "${{ steps.container.outputs.generated_package_path }}"
+          #if-no-files-found: error
   release:
     name: Release
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    needs: [build, deb-control-file-build]
+    needs: build
+    #needs: [build, deb-control-file-build]
     steps:
     - uses: actions/checkout@v2
     - uses: ncipollo/release-action@v1
