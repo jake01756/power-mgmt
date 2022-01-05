@@ -40,11 +40,12 @@ jobs:
          retention-days: 60
          
   deb-control-file-build:
-    name: Generate Debian Package
+    name: build for debian
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
         # Generate Debian control File
       - name: Generate Debian control File
         uses: Nightwind-Developments/debian-control-file-builder@latest
@@ -52,9 +53,9 @@ jobs:
         # Input Parameters
         with:
           # Required: Configuration File
-          config-file: '/home/runner/work/power-mgmt/power-mgmt/debian/control.json'
+          config-file: '/debian/control.json'
           # Optional: deps-file
-          deps-file: '/home/runner/work/power-mgmt/power-mgmt/debian/depends.txt'
+          deps-file: '/debian/depends.txt'
           # Optional: Custom Output Directory
           # output-path: 'desired/path/to/generated/file/named/control'
           # Optional: Case Sensitive JSON Keys
