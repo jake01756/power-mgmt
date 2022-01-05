@@ -23,7 +23,8 @@ jobs:
     - name: Upload build artifact
       uses: actions/upload-artifact@v2.3.1
       with:
-         name: build/power-mgmt
+         name: power-mgmt
+         path: build/power-mgmt
          if-no-files-found: warn
   
     - name: Build debug
@@ -32,5 +33,6 @@ jobs:
     - name: Upload debug artifact
       uses: actions/upload-artifact@v2.3.1
       with:
-         name: build/power-mgmt-debug
+         name: power-mgmt-debug
+         path: build/power-mgmt-debug
          if-no-files-found: warn
