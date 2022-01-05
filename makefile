@@ -1,5 +1,5 @@
 SHCFLAGS = -vrS
-BSYSHCFLAGS = -vRSB
+BSYSHCFLAGS = -vrSB
 DEBUGEXPIRE = $(shell date --date='72 hours' +%d\/%m\/%Y)
 DEBUGFLAGS = -vSD -m 'This debug build has expired, please recompile to continue debugging.'
 TARGETS = power-mgmt
