@@ -17,9 +17,9 @@ jobs:
         # Input Parameters
         with:
           # Required: Configuration File
-          config-file: 'debian/control.json'
+          config-file: '/debian/control.json'
           # Optional: deps-file
-          deps-file: 'debian/depends.txt'
+          deps-file: '/debian/depends.txt'
           # Optional: Custom Output Directory
           # output-path: 'desired/path/to/generated/file/named/control'
           # Optional: Case Sensitive JSON Keys
