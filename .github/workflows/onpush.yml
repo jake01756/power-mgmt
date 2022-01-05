@@ -122,4 +122,9 @@ jobs:
         body: "Here it is, power-mgmt built fresh from the last commit, beware this is the bleeding edge. This is unstable software"
         token: ${{ secrets.GITHUB_TOKEN }}
         prerelease: true
+        allowUpdates: true
+        removeArtifacts: true
+        tag: latest
+        generateReleaseNotes: true
+        commit: main
         
