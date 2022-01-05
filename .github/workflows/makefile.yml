@@ -38,7 +38,7 @@ jobs:
          path: build/power-mgmt-debug
          if-no-files-found: warn
          retention-days: 60
-deb-control-file-build:
+ deb-control-file-build:
     name: Generate Debian Package
     runs-on: ubuntu-latest
 
