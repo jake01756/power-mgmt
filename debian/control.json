@@ -1,0 +1,7 @@
+{
+  "Package": "power-mgmt",
+  "Version": "0.0.1",
+  "Architecture": "all",
+  "Maintainer": "Jake Thomas",
+  "Description": "Simple utility to control the power state of your system."
+}
