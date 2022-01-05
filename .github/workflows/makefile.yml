@@ -1,4 +1,4 @@
-name: Makefile CI
+name: push actions
 
 on:
   push:
@@ -38,3 +38,30 @@ jobs:
          path: build/power-mgmt-debug
          if-no-files-found: warn
          retention-days: 60
+ deb-control-file-build:
+    name: Generate Debian Package
+    runs-on: ubuntu-latest
+
+    steps:
+        # Generate Debian control File
+      - name: Generate Debian control File
+        uses: Nightwind-Developments/debian-control-file-builder@latest
+        id: deb_control
+        # Input Parameters
+        with:
+          # Required: Configuration File
+          config-file: '/debian/control.json'
+          # Optional: deps-file
+          deps-file: '/debian/depends.txt'
+          # Optional: Custom Output Directory
+          # output-path: 'desired/path/to/generated/file/named/control'
+          # Optional: Case Sensitive JSON Keys
+          case-sensitive-keys: 'true'
+        
+        # Upload the Generated control File as an Artifact
+      - name: Upload Generated Control File
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-control-file
+          path: "${{ steps.deb_control.outputs.control_file_path }}"
+          if-no-files-found: error
