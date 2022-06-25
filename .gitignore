@@ -1,2 +1,6 @@
-**/build/**
-*.sh.x.c
+log
+.tmp
+*.tmp
+.env
+.idea
+vendor
